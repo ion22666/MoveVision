@@ -1,6 +1,10 @@
 const path = require("path");
 
 module.exports = {
+    entry: "./src/index.js",
+    output: {
+        path: path.join(__dirname, "public"),
+    },
     module: {
         rules: [
             {
@@ -13,12 +17,9 @@ module.exports = {
             },
         ],
     },
-    output: {
-        path: path.resolve(__dirname, "public/assets"),
-    },
     devServer: {
-        devMiddleware: {
-            writeToDisk: true,
+        static: {
+            directory: "public",
         },
         compress: true,
         port: 9000,
