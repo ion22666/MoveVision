@@ -1,0 +1,27 @@
+#screen {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+}
+.but1 {
+    margin-top: 2.3rem;
+    position: absolute;
+    display: inline-block;
+    color: rgb(254, 0, 85);
+    text-align: center;
+    width: 5vw;
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transform: perspective(200px) rotateX(-32deg) translateZ(25px) translateY(5px);
+    background-color: rgba(92, 92, 92, 0.392);
+}
+
+.but1:hover{
+    background: #393939;
+    color: #136377;
+  }
+
+
