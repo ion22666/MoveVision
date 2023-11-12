@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./src/index.ts",
     output: {
         path: path.join(__dirname, "public"),
     },
@@ -13,6 +13,20 @@ module.exports = {
                 use: {
                     // `.swcrc` can be used to configure swc
                     loader: "swc-loader",
+                },
+            },
+            {
+                test: /\.ts$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: "swc-loader",
+                    options: {
+                        jsc: {
+                            parser: {
+                                syntax: "typescript",
+                            },
+                        },
+                    },
                 },
             },
         ],
