@@ -34,35 +34,22 @@ export default function () {
         clearTimeout(timeout);
         timeout = setTimeout(function(){
         element.style.display = "flex"
-        }, 1000);
+        }, 10);
         if(element.style.display === "flex" && !open){
             isMouseoff()
         }
     }}   
     
-    function isMouseoff() {
-        
+    function isMouseoff() {       
         var click = false;
-        let = timeout;
-        myButton.addEventListener("click",event=>(){
-            clearTimeout(timeout);
-        })
-        if(!click){
-            click = true
-        }else{
-            click = false
-        }
-        
-
-        timeout = setTimeout(function(){
+        setTimeout(function(){
             if(!open){
                 element.style.display = "none";
                 click = false
             }
-            }, 5000);  
+            }, 1000);  
         if(click){
             element.style.display = "flex";
-            
         }
     }
    
