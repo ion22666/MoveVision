@@ -1,22 +1,51 @@
 export default function () {
     //button sidebar
-
-    const myButton = document.querySelector(".but1");
-
-    function showElement() {
-        var element = document.querySelector("#slideBar");
-
-        if (element.style.marginTop === "-4rem") {
-            element.style.marginTop = "1rem";
-            myButton.innerHTML =
-                '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16"><path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/></svg>';
-        } else {
-            element.style.marginTop = "-4rem";
-            myButton.innerHTML =
-                '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>';
+    
+    let myButton = document.querySelector(".but1")  
+    let element = document.querySelector('#slideBar')
+    sidebar()
+    function isMouseoff() {
+        if(element.style.marginTop === '-4rem'){
+        setTimeout(function(){
+            element.style.display = "none";
+        }, 4000);}else{
+            element.style.display = "none";
         }
     }
-    myButton.addEventListener("click", () => {
-        showElement();
-    });
+    
+    isMouseOn()
+    function isMouseOn(){
+        var timeout;
+        document.onmousemove = function(){
+        clearTimeout(timeout);
+        timeout = setTimeout(function(){
+        element.style.display = "flex"
+        }, 1000);
+        if(element.style.display === "flex" && element.style.marginTop === '-4rem'){
+            isMouseoff()
+        }
+    }}
+    
+    
+    
+    function sidebar(){
+        myButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">'
+        + '<path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>'
+        + '</svg>';
+        myButton.addEventListener('click', () => {
+            
+            if (element.style.marginTop === '-4rem') {
+                element.style.marginTop = '1rem';
+                myButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">'
+                + '<path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>'
+                + '</svg>';
+            }else{
+                element.style.marginTop = '-4rem';
+                myButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">'
+    + '<path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>'
+    + '</svg>';  
+            }
+        });
+    }
+    
 }
