@@ -1,6 +1,5 @@
 export default function () {
     var open = false
-    var isvisible = false
     let myButton = document.querySelector(".but1")
     let element = document.querySelector('#slideBar')
     element.style.marginTop = '-4rem'
@@ -34,7 +33,7 @@ export default function () {
         clearTimeout(timeout);
         timeout = setTimeout(function(){
         element.style.display = "flex"
-        }, 10);
+        }, 1000);
         if(element.style.display === "flex" && !open){
             isMouseoff()
         }
